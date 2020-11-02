@@ -21,7 +21,6 @@ body {
 }
 
 .solitaire {
-    width: 660px;
     background-color: green;
     height: 440px;
     position: relative;
@@ -227,24 +226,10 @@ body {
 }
 
 .window {
-    margin: 20px auto;
     width: 671px;
     color: #000;
     font-family: 'Arial',sans-serif;
     background: #c0c0c0;
-    border: 1px solid;
-    border-top-color: #dfdfdf;
-    border-left-color: #dfdfdf;
-    border-right-color: #000;
-    border-bottom-color: #000;
-
-    &__inner {
-        border: 1px solid;
-        border-top-color: #fff;
-        border-left-color: #fff;
-        border-right-color: #808080;
-        border-bottom-color: #808080;
-    }
 
     &__heading {
         margin: 2px 2px 0;
@@ -272,21 +257,10 @@ body {
     }
 
     &__content {
-        margin: 0 2px 2px 2px;
-        border: 1px solid;
-        border-top-color: #808080;
-        border-left-color: #808080;
-        border-bottom-color: #fff;
-        border-right-color: #fff;
         font-size: 13px;
     }
 
     &__content-inner {
         background: #fff;
-        border: 1px solid;
-        border-top-color: #000;
-        border-left-color: #000;
-        border-bottom-color: #dfdfdf;
-        border-right-color: #dfdfdf;
     }
 }
