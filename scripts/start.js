@@ -9,7 +9,7 @@ const webpack = require('webpack');
 const config = require('../config/webpack.config.js');
 const paths = require('../config/paths');
 
-const PORT = 3000;
+const PORT = 4000;
 const HOST = 'localhost';
 
 const serverConfig = {
