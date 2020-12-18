@@ -332,9 +332,10 @@ function restartDeal() {
 }
 
 function getMousePosition(event) {
+    const zoomLevel = parseFloat(document.getElementsByTagName('html')[0].style.zoom);
     return {
-        x: event.pageX,
-        y: event.pageY
+        x: event.pageX / zoomLevel,
+        y: event.pageY / zoomLevel
     };
 }
 
@@ -660,7 +661,34 @@ const win = (canvasWidth, canvasHeight, canvasLeft, canvasTop) => {
     document.addEventListener('click', removeAnimation, false);
 };
 
+window.addEventListener('resize', updateZoomLevel);
+
+function updateZoomLevel() {
+  let myWidth, myHeight;
+  if (typeof (window.innerWidth) == 'number') {
+    myWidth = window.innerWidth;
+    myHeight = window.innerHeight;
+  } else {
+    if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+      myWidth = document.documentElement.clientWidth;
+      myHeight = document.documentElement.clientHeight;
+    } else {
+      if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+        myWidth = document.body.clientWidth;
+        myHeight = document.body.clientHeight;
+      }
+    }
+  }
+
+  const nativeWidth = 671;
+  const nativeHeight = 440;
+
+  document.getElementsByTagName('html')[0].style.zoom = myWidth / nativeWidth;
+}
+
 function initSolitaire() {
+    updateZoomLevel();
+    
     // add sprite
     const css = document.createElement('style');
     const styles = `.card--front { background-image: url("${spriteImg}"); }`;
